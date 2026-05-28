@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-public class YooMoneyPayment : IPaymentStrategy {
+﻿public class YooMoneyPayment : IPaymentStrategy {
   private string _walletNumber;
 
   public YooMoneyPayment(string walletNumber) {
@@ -12,6 +6,10 @@ public class YooMoneyPayment : IPaymentStrategy {
   }
 
   public string Pay(double amount) {
+    if (string.IsNullOrEmpty(_walletNumber) || _walletNumber.Length < 10) {
+      return "Ошибка: неверный номер кошелька";
+    }
+
     return $"Оплата {amount} руб. с кошелька {_walletNumber} прошла успешно";
   }
 }

@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
+    <Compile Include="BookStore.cs" />
     <Compile Include="Cart.cs" />
+    <Compile Include="ConsoleView.cs" />
     <Compile Include="CreditCardPayment.cs" />
     <Compile Include="IPaymentStrategy.cs" />
     <Compile Include="Program.cs" />

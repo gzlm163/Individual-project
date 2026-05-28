@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-public class Book {
+﻿public class Book {
   public string Name;
   public int Id;
   public string Author;
