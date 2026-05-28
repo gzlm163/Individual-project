@@ -4,51 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class Cart
-{
-    private List<Book> _books = new List<Book>();
+public class Cart {
+  private readonly List<Book> _books = new List<Book>();
 
-    public void Add(Book book)
-    {
-        _books.Add(book);
+  public void Add(Book book) {
+    _books.Add(book);
+  }
+
+  public void RemoveAt(int index) {
+    if (index >= 0 && index < _books.Count) {
+      _books.RemoveAt(index);
+    }
+  }
+
+  public string Display() {
+    if (_books.Count == 0) {
+      return "Корзина пуста";
     }
 
-    public void RemoveAt(int index)
-    {
-        if (index >= 0 && index < _books.Count)
-        {
-            _books.RemoveAt(index);
-        }
+    string result = "";
+    for (int bookIndex = 0; bookIndex < _books.Count; ++bookIndex) {
+      result += $"{bookIndex + 1}. {_books[bookIndex].Name} - {_books[bookIndex].Price} руб.\n";
     }
 
-    public string Display()
-    {
-        if (_books.Count == 0)
-        {
-            return "Корзина пуста";
-        }
+    result += $"Итого: {GetTotal()} руб.\n";
+    return result;
+  }
 
-        string result = "";
-        for (int bookIndex = 0; bookIndex < _books.Count; ++bookIndex)
-        {
-            result = result + $"{bookIndex + 1}. {_books[bookIndex].Name} - {_books[bookIndex].Price} руб.\n";
-        }
-        result = result + $"Итого: {GetTotal()} руб.\n";
-        return result;
+  public double GetTotal() {
+    double total = 0;
+    foreach (Book book in _books) {
+      total += book.Price;
     }
+    return total;
+  }
 
-    public double GetTotal()
-    {
-        double total = 0;
-        foreach (Book book in _books)
-        {
-            total += book.Price;
-        }
-        return total;
-    }
+  public void Clear() {
+    _books.Clear();
+  }
 
-    public void Clear()
-    {
-        _books.Clear();
-    }
+  public int GetItemCount() {
+    return _books.Count;
+  }
 }
