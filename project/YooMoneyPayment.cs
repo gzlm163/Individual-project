@@ -1,5 +1,5 @@
 ﻿public class YooMoneyPayment : IPaymentStrategy {
-  private string _walletNumber;
+  private readonly string _walletNumber;
 
   public YooMoneyPayment(string walletNumber) {
     _walletNumber = walletNumber;

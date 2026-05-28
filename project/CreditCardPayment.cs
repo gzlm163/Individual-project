@@ -1,7 +1,7 @@
 ﻿public class CreditCardPayment : IPaymentStrategy {
-  private string _cardNumber;
-  private string _expiry;
-  private string _cvv;
+  private readonly string _cardNumber;
+  private readonly string _expiry;
+  private readonly string _cvv;
 
   public CreditCardPayment(string cardNumber, string expiry, string cvv) {
     _cardNumber = cardNumber;

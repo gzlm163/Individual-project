@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 
 public class BookStore {
-  private List<Book> _books;
-  private Cart _cart;
-  private ConsoleView _view;
+  private readonly List<Book> _books;
+  private readonly Cart _cart;
+  private readonly ConsoleView _view;
 
   public BookStore(ConsoleView view) {
     _view = view;
@@ -44,6 +44,7 @@ public class BookStore {
     Console.WriteLine();
 
     Book foundBook = null;
+
     foreach (Book currentBook in _books) {
       if (currentBook.Id == bookId) {
         foundBook = currentBook;
@@ -57,6 +58,7 @@ public class BookStore {
     } else {
       _view.ShowMessage("Книга не найдена");
     }
+
     _view.Pause();
   }
 
@@ -77,6 +79,7 @@ public class BookStore {
       _view.ShowMessage("Обновленная корзина:");
       _view.ShowCart(_cart);
     }
+
     _view.Pause();
   }
 

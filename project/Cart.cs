@@ -18,7 +18,7 @@ public class Cart {
       return "Корзина пуста";
     }
 
-    string result = "";
+    string result = string.Empty;
     for (int bookIndex = 0; bookIndex < _books.Count; ++bookIndex) {
       result += $"{bookIndex + 1}. {_books[bookIndex].Name} - {_books[bookIndex].Price} руб.\n";
     }
@@ -32,6 +32,7 @@ public class Cart {
     foreach (Book book in _books) {
       total += book.Price;
     }
+
     return total;
   }
 
